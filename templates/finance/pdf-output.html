@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Output</title>
+
+    <style>
+    @page {
+        size: 700mm 600mm;
+        margin: 2.5cm 1.5cm 9.5cm 1.5cm;
+
+        @top-center {
+            content: "COMPANY NAME";
+        }
+
+        @bottom-right{
+            content: "Page" counter(page) " of " counter(pages);
+        }
+    }
+    </style>
+</head>
+<body>
+    <img src="https://media.istockphoto.com/id/1053291038/vector/business-finance-bar-profit-vector-illustration.jpg?s=612x612&w=0&k=20&c=r0axxeuEroKcQO7lhVziB0-AFuRTFfGUfnrfF1euzB4=">
+
+    <h2>Bilan</h2>
+
+
+    <table class="table">
+        <thead class="thead">
+            <tr>
+                <th>No</th>
+                <th>Actif Immobilisé</th>
+                <th>Stock</th>
+                <th>Crénaces</th>
+                <th>Trésorerie Actif</th>
+                <th>Capitaux Propre</th>
+                <th>Dette de Financement</th>
+                <th>Dette à court Terme</th>
+                <th>passif</th>
+                <th></th>
+                <th>actif</th>
+                <th>Fond de Roulement</th>
+                <th>Besoin de fond de roulement</th>
+                <th>Trésorerie Net</th>
+                <th>Financement Permanent</th>
+                <th>Autonomie Financiére</th>
+                <th>Solvabilité Géneral</th>
+                <th>Capacité de Remboursement</th>
+                <th>Type</th>
+                <th></th>
+                <th>Date</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for bilan in bilans %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{bilan.actif_immobilisé}}</td>
+                <td>{{bilan.stock}}</td>
+                <td>{{bilan.crénaces}}</td>
+                <td>{{bilan.trésorerie_actif}}</td>
+                <td>{{bilan.capitaux_propre}}</td>
+                <td>{{bilan.dette_de_financement}}</td>
+                <td>{{bilan.dette_à_court_terme}}</td>
+                <td>{{bilan.passif}}</td>
+                <td>{{bilan.actif}}</td>
+                <td>{{bilan.fond_de_roulement}}</td>
+                <td>{{bilan.besoin_de_fond_de_roulement}}</td>
+                <td>{{bilan.tresorerie_net}}</td>
+                <td>{{bilan.financement_permanent}}</td>
+                <td>{{bilan.autonomie_financiere}}</td>
+                <td>{{bilan.solvabilite_general}}</td>
+                <td>{{bilan.capacite_de_remboursement}}</td>
+                <td>{{bilan.type}}</td>
+               <td>{{bilan.date}}</td>
+            </tr>
+
+
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

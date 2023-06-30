@@ -1,0 +1,45 @@
+
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+  .sidebar{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0, 0, 0.1);
+
+  }
+  .sidebar a {
+    position: relative;
+    color: rgb(236, 228, 228) !important;
+    font-size: 14px !important;
+    display: table !important;
+    width: 300px !important;
+    padding: 10px !important;
+  }
+  .fas{
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 10px;
+    font-size: 20px;
+    text-align: center;
+  }
+  .nav-item{
+    position: relative;
+    top: 10px;
+    margin-left: 15px;
+    
+  }
+  .a:hover{
+    background: #eee;
+
+  }
+  .sidebar:hover{
+    width: 280px;
+    transition: all 0.5s ease;
+  }

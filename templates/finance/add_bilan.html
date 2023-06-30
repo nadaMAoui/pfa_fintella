@@ -1,0 +1,111 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="container mt-4">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a href="{% url 'finance'%}">Finance</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Add Finance</li>
+    </ol>
+  </nav>
+
+  <div class="card">
+    <div class="card-body">
+      <form action="{% url 'add-bilan' %}" method="post">
+        {% include 'partials/_messages.html'%} {% csrf_token %}
+        <div class="form-group">
+          <label for="">Actif immobilise</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            name="actif_immobilisé"
+            value="{{values.actif_immobilisé}}"
+          />
+      </div>
+      <div class="form-group">
+        <label for="">Stock</label>
+        <input
+          type="text"
+          class="form-control form-control-sm"
+          name="stock"
+          value="{{values.stock}}"
+        />
+      </div>
+      <div class="form-group">
+      <label for="">Crénaces</label>
+      <input
+        type="text"
+        class="form-control form-control-sm"
+        name="créances"
+        value="{{values.créances}}"
+      />
+      </div>
+        <div class="form-group">
+            <label for="">Trésorerie Actif</label>
+            <input
+              type="text"
+              class="form-control form-control-sm"
+              name="trésorerie_actif"
+              value="{{values.trésorerie_actif}}"
+            />
+        </div>
+        <div class="form-group">
+          <label for="">Capitaux Propre</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            name="capitaux_propre"
+            value="{{values.capitaux_propre}}"
+          />
+        </div>
+        <div class="form-group">
+          <label for="">Dette de Financement</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            name="dette_de_financement"
+            value="{{values.dette_de_financement}}"
+          />
+        </div>
+        <div class="form-group">
+          <label for="">Dette à court Terme</label>
+          <input
+            type="text"
+            class="form-control form-control-sm"
+            name="dette_à_court_terme"
+            value="{{values.dette_à_court_terme}}"
+          />
+        </div>
+        <div class="form-group">
+          <label for=""> type</label>
+          <select class="form-control" name="type">
+            {% for type in types %}
+            <option name="type" value="{{type.name}}"
+              >{{type.name}}</option
+            >
+
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="">Date of Bilan</label>
+          <input
+            type="date"
+            class="form-control form-control-sm"
+            name="bilan_date"
+          />
+        </div>
+
+        <input
+          type="submit"
+          value="Submit"
+          class="btn btn-primary btn-primary-sm"
+        />
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+

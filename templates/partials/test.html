@@ -1,0 +1,124 @@
+{% load static %}
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+
+<link href="{% static 'css/_sidebar.css' %}" rel="stylesheet" />
+
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">
+              <span data-feather="home"></span>
+              Dashboard <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li>
+            <a  href="{% url 'finance' %}">
+              <i class="fas fa-home"></i>
+              <span class="nav-item">Bilan</span> 
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <i class="fas fa-user"></i><span class="nav-item">Profits</span> 
+            </a>
+          </li>
+
+          <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
+            <span data-feather="plus-circle"></span>
+          </a>
+        <ul class="nav flex-column mb-2">
+          <li>
+            <a href="{% url 'stats' %}">
+              <i class="fas fa-chart-bar"></i>
+              <span class="nav-item">Bilan Summary</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-cog"></i>
+              <span class="nav-item">Setting</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-question-circle"></i>
+              <span class="nav-item">Help</span>
+            </a>
+          </li>
+      </div>
+    </nav>
+
+<style>
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+  .nav-item{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+
+  .sidebar{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0, 0, 0.1);
+
+  }
+  .sidebar a {
+    position: relative;
+    color: rgb(85, 83, 83) !important;
+    font-size: 14px !important;
+    display: table !important;
+    width: 300px !important;
+    padding: 10px !important;
+  }
+  .fas{
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+  }
+  .nav-item{
+    position: relative;
+    top: 12px;
+    margin-left: 10px;
+    
+  }
+  .a:hover{
+    background: #eee;
+
+  }
+  .sidebar:hover{
+    width: 280px;
+    transition: all 0.5s ease;
+  }
+
+</style>
+
+
+<div class="row">
+    <div class="col-md-8">
+
+
+    </div>
+    <div class="col-md-4">
+      <a href="{% url 'export-excel' %}" class="btn btn-primary">Export Excel</a>
+      <a href="{% url 'export-csv' %}" class="btn btn-secondary">Export CSV</a>
+      <a href="{% url 'export-pdf' %}" class="btn btn-info">Export PDF</a>
+      <div class="row">
+        <div class="form-group">
+            <input type="text" class="form-control" id="searchField" placeholder="Search">
+        </div>
+    </div>
+  </div>
